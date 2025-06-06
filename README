@@ -1,1 +1,71 @@
-edita este readme
+📝 PruebaDeConocimiento
+Es una aplicación de escritorio desarrollada en WPF con MVVM, que utiliza SQL Server para la gestión de registros de usuarios. Su diseño sigue principios de modularidad y buenas prácticas en el desarrollo de software.
+
+Objetivo del Proyecto
+Esta aplicación permite el registro y gestión de usuarios mediante una base de datos SQL Server, asegurando validaciones correctas y una separación limpia de la lógica de la interfaz y los datos.
+
+Estructura del Proyecto
+El código está organizado en carpetas para facilitar la escalabilidad y mantenimiento de las mismas en cuanto al orden y estructura de estas:
+
+BD → Contiene Bd.cs, responsable de manejar la conexión y operaciones con SQL Server.
+Commands → Implementa RelayCommand.cs para gestionar comandos en el patrón MVVM.
+Models → Define las entidades del sistema.
+Resources→ Contiene styles.xaml para un diseño unificado en la interfaz.
+ViewModels → Contiene la lógica de presentación.
+UserViewModel.cs → Maneja la información y validaciones de usuarios.
+ViewModelBase.cs → Clase base para los ViewModels.
+Views → Almacena las vistas XAML.
+RecordsView.xaml y `RecordsView.xaml.cs` → Pantalla para la gestión de registros.
+App.xaml → Configuración global de la aplicación.
+MainWindow.xaml y `MainWindow.xaml.cs` → Definen la ventana principal de la aplicación.
+
+ 🛠 Requisitos Previos
+Para desarrollar y ejecutar el proyecto correctamente, asegúrate de contar con:
+1. Visual Studio 2022 (con carga de trabajo para desarrollo de escritorio en .NET)
+2. SQL Server (versión 2017 o superior)
+3. Administrador de paquetes NuGet para instalar dependencias
+
+📥 Instalación y Configuración
+1. Instalar Visual Studio 2022 
+   Descárgalo desde [Visual Studio](https://visualstudio.microsoft.com/es/)  
+   Selecciona la opción .NET Desktop Development durante la instalación.
+
+2. Clonacion de proyecto en otra computadora mediante el siguiente enlace:
+   git clone https://github.com/tu_usuario/PruebaDeConocimiento.git
+
+3. Instalar dependencias desde NuGet:
+   Install-Package System.Data.SqlClient -Version 4.9.0
+
+4. Configurar SQL Server
+Crear la base de datos para el proyecto PruebaDeConocimiento
+Crear base de datos llamada BDUSERS
+Ejecutar el siguiente script SQL para crear la tabla de usuarios:
+
+CREATE TABLE Usuarios (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Nombre VARCHAR(100) NOT NULL,
+    Apellido VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Telefono VARCHAR(100) NOT NULL,
+    Contraseña VARCHAR(255) NOT NULL
+);
+
+5. Configurar la conexión a SQL Server en App.config:
+<connectionStrings>
+    <add name="Conexion" connectionString="Server=TU_SERVIDOR;Database=PruebaDeConocimiento;User Id=TU_USUARIO;lastname=TU_APELLIDO;email=TU_CORREO;telefono=TU_telefono;Password=TU_CONTRASEÑA;" providerName="System.Data.SqlClient"/>
+</connectionStrings>
+
+6. Ejecuta el proyecto cuando instales todo lo necesario para que el trabajo funcione correctamente.
+
+7. 💻 Tecnologías Utilizadas
+Lenguaje: C#
+Framework: WPF
+Patrón de Diseño: MVVM
+Base base de Datos: SQL Server
+Herramienta edicion de codigo:Visual Studio 2022
+
+
+8. Conclusion
+Este proyecto esta hecho para agregar y almacenar datos de usuarios con sus respectivos credenciales a la base de datos, cabe resaltar, que asi como agrega datos, tambien se puede editar y eliminar ciertos datos que son insertados desde la interfaz grafica.
+
+
